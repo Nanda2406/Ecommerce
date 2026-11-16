@@ -1,0 +1,7 @@
+.announcement{background:#eee3ff;color:#5c4387}.announcement strong{color:#5a3298}
+header{background:#fffaff;border-bottom:1px solid #eee3fa;box-shadow:0 2px 16px #7955b012}
+.brand-icon{background:linear-gradient(135deg,#a989e7,#d0b4f6);box-shadow:0 8px 20px #a989e744}
+.brand h1{color:#573786}.brand small{color:#8c77a9}
+nav button{color:#69557f}nav button:hover{background:#f3eaff;color:#603e9a}
+nav button[data-view=carrinho]{background:#eee3ff;color:#59358f}
+#count{background:#7950b5;color:#fff}

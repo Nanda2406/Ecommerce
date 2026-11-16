@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width,initial-scale=1" name="viewport"/>
+  <title>
+   Tech F&aacute;cil | Loja
+  </title>
+  <link href="./css/main.css" rel="stylesheet"/>
+  <link href="./css/header.css" rel="stylesheet"/>
+  <link href="./css/footer.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <div class="announcement">
+   ✨ Tecnologia acess&iacute;vel, escolhas inteligentes.
+   <strong>
+    Bem-vindo &agrave; Tech F&aacute;cil!
+   </strong>
+  </div>
+  <header>
+   <div class="top">
+    <div class="brand">
+     <span class="brand-icon">
+      ⚡
+     </span>
+     <div>
+      <h1>
+       Tech F&aacute;cil
+      </h1>
+      <small>
+       Loja de tecnologia
+      </small>
+     </div>
+    </div>
+    <nav>
+     <button data-view="loja">
+      Loja
+     </button>
+     <button data-view="carrinho">
+      Carrinho
+      <span id="count">
+       0
+      </span>
+     </button>
+     <button data-view="pedidos">
+      Meus pedidos
+     </button>
+     <button data-view="admin">
+      Admin
+     </button>
+    </nav>
+   </div>
+  </header>
+  <main>
+   <section class="view" id="loja">
+    <div class="hero">
+     <div class="hero-content">
+      <span class="eyebrow">
+       ✦ Seu universo tech come&ccedil;a aqui
+      </span>
+      <h2>
+       Seu pr&oacute;ximo upgrade
+       <span>
+        come&ccedil;a agora.
+       </span>
+      </h2>
+      <p>
+       Descubra acess&oacute;rios, perif&eacute;ricos e tecnologia para transformar sua rotina.
+      </p>
+      <button class="hero-cta" onclick="document.getElementById('produtos').scrollIntoView({behavior:'smooth'})">
+       Explorar produtos &rarr;
+      </button>
+     </div>
+     <div aria-hidden="true" class="hero-art">
+      🎧
+     </div>
+    </div>
+    <div class="benefits">
+     <div class="benefit">
+      <span class="benefit-icon">
+       ✨
+      </span>
+      <span>
+       <b>
+        Produtos selecionados
+       </b>
+       Praticidade para o dia a dia
+      </span>
+     </div>
+     <div class="benefit">
+      <span class="benefit-icon">
+       🛒
+      </span>
+      <span>
+       <b>
+        Compra simplificada
+       </b>
+       Experi&ecirc;ncia r&aacute;pida e f&aacute;cil
+      </span>
+     </div>
+     <div class="benefit">
+      <span class="benefit-icon">
+       🔒
+      </span>
+      <span>
+       <b>
+        Escolhas inteligentes
+       </b>
+       Tudo em um s&oacute; lugar
+      </span>
+     </div>
+    </div>
+    <div class="section-heading">
+     <div>
+      <h2>
+       Explore nossos produtos
+      </h2>
+      <p>
+       Encontre o acess&oacute;rio perfeito para voc&ecirc;
+      </p>
+     </div>
+    </div>
+    <div class="filters">
+     <input id="busca" placeholder="Pesquisar produtos..."/>
+     <select id="categoria">
+      <option value="">
+       Todas as categorias
+      </option>
+     </select>
+    </div>
+    <div class="grid" id="produtos">
+    </div>
+   </section>
+   <section class="view hidden" id="carrinho">
+    <h2>
+     Seu carrinho
+    </h2>
+    <div id="itensCarrinho">
+    </div>
+    <h3 id="total">
+    </h3>
+    <div class="panel">
+     <h3>
+      Finalizar compra
+     </h3>
+     <label>
+      Nome do cliente
+      <input id="cliente" placeholder="Seu nome"/>
+     </label>
+     <label>
+      Forma de pagamento
+      <select id="pagamento">
+       <option>
+        PIX
+       </option>
+       <option>
+        Boleto
+       </option>
+       <option>
+        Cart&atilde;o
+       </option>
+      </select>
+     </label>
+     <button class="primary" id="finalizar">
+      Confirmar pedido
+     </button>
+    </div>
+   </section>
+   <section class="view hidden" id="pedidos">
+    <h2>
+     Meus pedidos
+    </h2>
+    <div id="listaPedidos">
+    </div>
+   </section>
+   <section class="view hidden" id="admin">
+    <h2>
+     Painel Administrativo
+    </h2>
+    <div class="panel">
+     <h3 id="formTitle">
+      Cadastrar produto
+     </h3>
+     <form id="produtoForm">
+      <input id="editId" type="hidden"/>
+      <label>
+       Nome
+       <input id="nome" required=""/>
+      </label>
+      <label>
+       Categoria
+       <input id="cat" required=""/>
+      </label>
+      <label>
+       Pre&ccedil;o (R$)
+       <input id="preco" min="0.01" required="" step="0.01" type="number"/>
+      </label>
+      <label>
+       Estoque
+       <input id="estoque" min="0" required="" step="1" type="number"/>
+      </label>
+      <label>
+       Descri&ccedil;&atilde;o
+       <textarea id="descricao" rows="2"></textarea>
+      </label>
+      <button class="primary" type="submit">
+       Salvar produto
+      </button>
+      <button id="cancelar" type="button">
+       Cancelar edi&ccedil;&atilde;o
+      </button>
+     </form>
+    </div>
+    <h3>
+     Produtos cadastrados
+    </h3>
+    <div id="adminProdutos">
+    </div>
+    <h3>
+     Exportar dados CSV
+    </h3>
+    <div class="actions">
+     <button id="exportProdutos">
+      Exportar produtos.csv
+     </button>
+     <button id="exportPedidos">
+      Exportar pedidos.csv
+     </button>
+     <button id="exportItens">
+      Exportar itens_pedido.csv
+     </button>
+    </div>
+    <h3>
+     Importar produtos CSV
+    </h3>
+    <p>
+     Use o mesmo formato do arquivo
+     <code>
+      produtos.csv
+     </code>
+     inclu&iacute;do no projeto. A importa&ccedil;&atilde;o substitui os produtos atuais.
+    </p>
+    <input accept=".csv,text/csv" id="importProdutos" type="file"/>
+    <h3>
+     Reiniciar loja
+    </h3>
+    <button id="reset">
+     Restaurar produtos iniciais e apagar pedidos
+    </button>
+   </section>
+  </main>
+  <footer>
+   Tech F&aacute;cil &bull; Sua loja de tecnologia
+  </footer>
+  <script src="./js/app.js">
+  </script>
+ </body>
+</html>
